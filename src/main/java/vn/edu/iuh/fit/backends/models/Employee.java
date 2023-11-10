@@ -4,12 +4,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import vn.edu.iuh.fit.backends.enums.EmployeeStatus;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "employee")
 @NamedQueries(
@@ -54,69 +58,7 @@ public class Employee {
         this.status = status;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
-    public LocalDate getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDate dob) {
-        this.dob = dob;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public EmployeeStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(EmployeeStatus status) {
-        this.status = status;
-    }
-
-    public List<Order> getLstOrder() {
-        return lstOrder;
-    }
-
-    public void setLstOrder(List<Order> lstOrder) {
-        this.lstOrder = lstOrder;
-    }
 
     @Override
     public String toString() {
@@ -134,8 +76,7 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
-        Employee employee = (Employee) o;
+        if (!(o instanceof Employee employee)) return false;
         return getId() == employee.getId();
     }
 

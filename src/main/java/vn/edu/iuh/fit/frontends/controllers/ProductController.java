@@ -20,10 +20,13 @@ import java.util.stream.IntStream;
 @Controller
 @RequestMapping("/admin")
 public class ProductController {
+    private final ProductService productService;
+
     @Autowired
-    private ProductService productService;
-    @Autowired
-    private ProductRepository productRepository;
+    public ProductController(ProductRepository productRepository, ProductService productService) {
+        this.productService = productService;
+    }
+
     @GetMapping("/products")
     public String showProductListPaging(
             HttpSession session,
