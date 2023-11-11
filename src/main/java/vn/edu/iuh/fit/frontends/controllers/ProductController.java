@@ -21,20 +21,22 @@ import java.util.stream.IntStream;
 @RequestMapping("/admin")
 public class ProductController {
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public ProductController(ProductRepository productRepository, ProductService productService) {
+    public ProductController(ProductService productService, ProductRepository productRepository) {
         this.productService = productService;
+        this.productRepository = productRepository;
     }
 
-    @GetMapping("/products")
+    @GetMapping("/products-paging")
     public String showProductListPaging(
             HttpSession session,
             Model model,
             @RequestParam("page") Optional<Integer> page,
             @RequestParam("size") Optional<Integer> size) {
 
-        session.setAttribute("sample","this is sample");
+        session.setAttribute("sample", "this is sample");
 
         int currentPage = page.orElse(1);
         int pageSize = size.orElse(10);
@@ -54,4 +56,10 @@ public class ProductController {
         return "admin/product/listing";
     }
 
+    @GetMapping("/products")
+    public String listAllProduct(Model model) {
+        List<Product> products = productRepository.findAll();
+        model.addAttribute("listProduct", products);
+        return "/admin/product/listProduct";
+    }
 }

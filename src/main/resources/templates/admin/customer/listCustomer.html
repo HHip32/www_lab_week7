@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>employees with no paginated</title>
+    <meta charset="UTF-8">
+    <title>customers</title>
+</head>
+<body>
+<h1 class="text-center">LIST OF CUSTOMER</h1>
+<table class="table table-striped table-hover table-bordered">
+    <thead class="bg-gradient">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>ADDRESS</th>
+        <th>PHONE</th>
+        <th colspan="2">
+            <a type="button" class="btn btn-success" href="/admin/customers/show-add-form">New Customer</a>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer, iStat : ${customers}">
+        <td th:text="${customer.getId()}"></td>
+        <td th:text="${customer.getName()}"></td>
+        <td th:text="${customer.getEmail()}"></td>
+        <td th:text="${customer.getAddress()}"></td>
+        <td th:text="${customer.getPhone()}"></td>
+        <td><a class="btn btn-primary"
+               th:href="@{/admin/customers/show-edit-form/{id}(id=${customer.getId()})}">Edit</a></td>
+        <td>
+            <a class="btn btn-danger" th:href="@{/admin/customers/delete/{id}(id=${customer.getId()})}"
+               onclick="return confirm('Are you sure you want to delete this customer?');">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

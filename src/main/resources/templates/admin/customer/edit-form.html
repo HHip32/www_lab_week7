@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit form</title>
+</head>
+<body align="center">
+<h1>Add Form</h1>
+<form  th:action="@{/admin/customers/edit/{id}(id=${customerToUpdate.getId()})}" method="post">
+    <h5>Name</h5>
+    <label>
+        <input name="name" th:value="${customerToUpdate.getName()}">
+    </label> <br/>
+    <h5>Address</h5>
+    <label>
+        <input name="address" th:value="${customerToUpdate.getAddress()}">
+    </label> <br/>
+    <h5>Email</h5>
+    <label>
+        <input name="email" th:value="${customerToUpdate.getEmail()}">
+    </label> <br/>
+    <h5>phone</h5>
+    <label>
+        <input name="phone" th:value="${customerToUpdate.getPhone()}">
+    </label> <br/>
+    <input style="margin-top: 30px" type="submit" value="Edit Customer">
+</form>
+</body>
+</html>
