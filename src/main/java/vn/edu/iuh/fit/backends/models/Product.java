@@ -43,6 +43,10 @@ public class Product {
     public Product() {
     }
 
+    public Product(long product_id) {
+        this.product_id = product_id;
+    }
+
     public Product(String name, String description, String unit, String manufacturer, ProductStatus status) {
         this.name = name;
         this.description = description;

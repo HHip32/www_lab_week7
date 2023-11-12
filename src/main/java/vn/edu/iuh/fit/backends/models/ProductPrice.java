@@ -1,10 +1,13 @@
 package vn.edu.iuh.fit.backends.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import vn.edu.iuh.fit.backends.pks.ProductPricePK;
 
 import java.time.LocalDateTime;
-
+@Getter@Setter@NoArgsConstructor
 @Entity
 @Table(name = "product_price")
 @IdClass(ProductPricePK.class)
@@ -21,8 +24,7 @@ public class ProductPrice {
     @Column(name = "note")
     private String note;
 
-    public ProductPrice() {
-    }
+
 
     public ProductPrice(Product product, LocalDateTime price_date_time, double price, String note) {
         this.product = product;
@@ -31,45 +33,5 @@ public class ProductPrice {
         this.note = note;
     }
 
-    public Product getProduct() {
-        return product;
-    }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public LocalDateTime getPrice_date_time() {
-        return price_date_time;
-    }
-
-    public void setPrice_date_time(LocalDateTime price_date_time) {
-        this.price_date_time = price_date_time;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductPrice{" +
-                "product=" + product +
-                ", price_date_time=" + price_date_time +
-                ", price=" + price +
-                ", note='" + note + '\'' +
-                '}';
-    }
 }
