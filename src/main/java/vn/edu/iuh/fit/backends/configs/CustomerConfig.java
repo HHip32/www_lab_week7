@@ -23,7 +23,7 @@ public class CustomerConfig {
     CommandLineRunner getAllCus() {
         return args -> {
             Faker faker = new Faker();
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 20; i++) {
                 int length = 5;
                 String characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
                 Random random = new Random();

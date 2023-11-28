@@ -6,9 +6,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
+import vn.edu.iuh.fit.backends.enums.ProductStatus;
 import vn.edu.iuh.fit.backends.models.Product;
 import vn.edu.iuh.fit.backends.repositories.ProductRepository;
+
+import java.util.List;
 
 @Service
 @NoArgsConstructor
@@ -25,4 +29,5 @@ public class ProductService {
         Pageable pageable = PageRequest.of(pageNo, pageSize, sort);
         return productRepository.findAll(pageable);
     }
+
 }

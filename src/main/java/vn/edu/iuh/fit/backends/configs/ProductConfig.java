@@ -25,7 +25,7 @@ public class ProductConfig {
             Faker faker = new Faker();
 //            Random rnd = new Random();
             Device devices = faker.device();
-            for (int i = 0; i < 200; i++) {
+            for (int i = 0; i < 20; i++) {
                 Product product = new Product(
                         devices.modelName(),
                         faker.lorem().paragraph(30),
